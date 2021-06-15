@@ -16,7 +16,7 @@ RUN apt update && \
     curl -L -O https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.3/applicationinsights-agent-3.0.0-PREVIEW.3.jar
 
 # Expose the ports we're interested in
-EXPOSE 8080
+EXPOSE 8082
 
 # Make Java 8 obey container resource limits, improve performance
 ENV JAVA_OPTS='-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:+UseG1GC -Djava.awt.headless=true'
