@@ -9,7 +9,7 @@ spec:
   selector:
     matchLabels:
       app: springboot
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -40,26 +40,3 @@ spec:
       targetPort: 8080
   selector:
     app: springboot
----
-apiVersion: v1
-kind: Service
-metadata:
-  annotations:
-    prometheus.io/path: /actuator/prometheus
-    prometheus.io/port: '8080'
-    prometheus.io/scheme: http
-    prometheus.io/scrape: 'true'
-  labels:
-    app: springboot
-  name: springboot-management-service
-spec:
-  ports:
-    - name: 8080-tcp
-      port: 8080
-      protocol: TCP
-      targetPort: 8082
-  selector:
-    app: springboot
-    deploymentconfig: springboot
-  sessionAffinity: None
-  type: ClusterIP
