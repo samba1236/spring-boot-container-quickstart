@@ -51,15 +51,14 @@ metadata:
     prometheus.io/scrape: 'true'
   labels:
     app: springboot
-  name: springboot-management-service
+  name: springboot-service
 spec:
   ports:
     - name: 8080-tcp
       port: 8080
       protocol: TCP
-      targetPort: 8082
+      targetPort: 8080
   selector:
     app: springboot
-    deploymentconfig: springboot
   sessionAffinity: None
   type: ClusterIP
